@@ -20,6 +20,7 @@ export class ProductEntity extends Entity<ProductProps> {
 
     update(value: string): void {
         ProductEntity.validate({ ...this.props, name: value })
+        this.name = value
     }
 
     get name() {
@@ -32,6 +33,10 @@ export class ProductEntity extends Entity<ProductProps> {
 
     get description() {
         return this.props.description
+    }
+
+    get createdAt() {
+        return this.props.createdAt
     }
 
     static validate(props: ProductProps) {
